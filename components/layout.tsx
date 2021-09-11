@@ -2,13 +2,50 @@ import { FC } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import Arrow from "../public/icons/arrow_forward_24dp.svg";
 import { colorInherit, fullWidth } from '../styles/utils.css';
-import { backToHome, container, header, headerLeft, headerRight, headerSm, navMenu, seeProjectsButton, subtitle, title, titleSm } from './layout.css';
+import { backToHome, container, header, headerLeft, headerRight, headerSm, navMenu, navMenuLink, seeProjectsButton, subtitle, title, titleSm } from './layout.css';
+import ArrowIcon from '../public/icons/arrow_forward_24dp.svg';
+import GitHubIcon from '../public/icons/github_24dp.svg'
+import ContactIcon from '../public/icons/email-outline_24dp.svg'
+import AboutIcon from '../public/icons/information-outline_24dp.svg'
+import ProjectsIcon from '../public/icons/folder-multiple-outline_24dp.svg'
+import AngularIcon from '../public/icons/angular_24dp.svg'
+import ReactIcon from '../public/icons/react_24dp.svg'
+import AndroidIcon from '../public/icons/android_24dp.svg'
+import NodeJsIcon from '../public/icons/nodejs_24dp.svg'
+import DotNetIcon from '../public/icons/dotnet_24dp.svg'
 
 const name = 'Santiago Podestá'
 const description = 'Full-stack Dev · Tinkerer · Learner'
 export const siteTitle = 'Santiago Podestá'
+
+const Icons = [
+  {
+    name: 'Angular',
+    icon: AngularIcon,
+    tag: 'angular',
+  },
+  {
+    name: 'React',
+    icon: ReactIcon,
+    tag: 'react',
+  },
+  {
+    name: 'Node.js',
+    icon: NodeJsIcon,
+    tag: 'nodejs',
+  },
+  {
+    name: '.NET',
+    icon: DotNetIcon,
+    tag: 'dotnet',
+  },
+  {
+    name: 'Android',
+    icon: AndroidIcon,
+    tag: 'android',
+  },
+]
 
 const scrollToProjects = () => {
   document
@@ -16,20 +53,24 @@ const scrollToProjects = () => {
     ?.scrollIntoView({ behavior: 'smooth' })
 }
 
+export const Icon: FC<{ icon: any }> = ({ icon: Icon }) => (
+  <div style={{
+    display: 'inline-flex',
+    alignSelf: 'center'
+  }}>
+    <Icon style={{
+      height: '1em',
+      width: '1em',
+      top: '.125em',
+      position: 'relative',
+    }} />
+  </div>
+)
+
 const SeeProjectsButton = () => (
   <a onClick={scrollToProjects}>
     <div className={seeProjectsButton}>
-      <div style={{
-        display: 'inline-flex',
-        alignSelf: 'center'
-      }}>
-        <Arrow style={{
-          height: '1em',
-          width: '1em',
-          top: '.125em',
-          position: 'relative'
-        }}/>
-      </div>
+      <Icon icon={ArrowIcon}/>
       &nbsp;See my work
     </div>
   </a>
@@ -85,7 +126,9 @@ export const NavMenu: FC<React.HTMLProps<HTMLDivElement>> = ({ className, style,
     style={style}
     className={`${navMenu} ${className}`}
   >
-    <Link href="/">About</Link> · <Link href="/projects">Projects</Link> · <Link href="mailto:santiagolp98@gmail.com">Contact</Link> · <Link href="https://github.com/sntg-p">GitHub</Link>
+    <Link href="/"><a className={navMenuLink}><Icon icon={AboutIcon} /> About</a></Link> · <Link href="/projects"><a className={navMenuLink}><Icon icon={ProjectsIcon} /> Projects</a></Link> · <Link href="mailto:santiagolp98@gmail.com"><a className={navMenuLink}><Icon icon={ContactIcon} /> Contact</a></Link> · <Link href="https://github.com/sntg-p"><a className={navMenuLink}>
+        <Icon icon={GitHubIcon} /> GitHub
+      </a></Link>
   </div>
 )
 
@@ -105,7 +148,7 @@ export const HeroHeader: FC = () => (
   <>
     <NavMenu style={{
       position: 'relative',
-      top: '2.28rem',
+      top: '2.15rem',
       textAlign: 'end'
     }}/>
 
@@ -116,8 +159,26 @@ export const HeroHeader: FC = () => (
         <h1 className={subtitle}>{description}</h1>
       </div>
 
-      <aside className={headerRight}>
+      <aside className={headerRight} style={{
+        marginTop: '1.5rem',
+      }}>
         <SeeProjectsButton/>
+
+        <div className={navMenu} style={{
+          fontSize: '1.2rem',
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '.25rem',
+          marginTop: '.5rem',
+        }}>
+          {Icons.map(({ name, icon, tag }) => (
+            <Link href={`/projects/tags/${tag}`}>
+              <a key={tag} className={navMenuLink} title={name}>
+                <Icon icon={icon} />
+              </a>
+            </Link>
+          ))}
+        </div>
       </aside>
     </header>
   </>

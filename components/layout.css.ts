@@ -16,11 +16,10 @@ export const header = style({
 })
 
 export const headerLeft = style({
-  width: '67%'
+  width: '100%'
 })
 
 export const headerRight = style({
-  width: '33%',
   textAlign: 'end',
 })
 
@@ -49,6 +48,7 @@ export const seeProjectsButton = style({
   lineHeight: '46px',
   fontWeight: 200,
   cursor: 'pointer',
+  whiteSpace: 'nowrap',
 })
 
 export const title = style({
@@ -71,7 +71,19 @@ export const subtitle = style({
 })
 
 export const navMenu = style({
-  fontSize: '.7rem',
+  fontSize: '.8rem',
   fontWeight: 200,
   color: 'hsla(0, 0%, 100%, 0.54)',
+})
+
+export const navMenuLink = style({
+  selectors: {
+    [`${navMenu} &`]: {
+      color: 'hsla(0, 0%, 100%, 0.54)',
+    },
+    [`${navMenu} &:hover`]: {
+      color: 'var(--accent-color)',
+      textDecoration: 'none'
+    },
+  }
 })
