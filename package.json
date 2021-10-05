@@ -20,7 +20,8 @@
     "react-markdown": "^7.0.1",
     "remark": "13",
     "remark-gfm": "^2.0.0",
-    "remark-html": "13"
+    "remark-html": "13",
+    "sass": "^1.42.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.20",
