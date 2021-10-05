@@ -6,6 +6,11 @@ export const container = style({
   minHeight: '100vh',
   padding: '0 64px 1rem',
   margin: '0 auto 0',
+  '@media': {
+    'screen and (max-width: 800px)': {
+      padding: '0 32px 1rem',
+    }
+  },
 })
 
 export const header = style({
@@ -13,10 +18,21 @@ export const header = style({
   height: '100vh',
   flexDirection: 'row',
   alignItems: 'center',
+  '@media': {
+    'screen and (max-width: 800px)': {
+      flexDirection: 'column',
+      justifyContent: 'center'
+    }
+  },
 })
 
 export const headerLeft = style({
-  width: '100%'
+  width: '100%',
+  '@media': {
+    'screen and (max-width: 800px)': {
+      textAlign: 'center'
+    }
+  },
 })
 
 export const headerRight = style({
@@ -54,7 +70,7 @@ export const seeProjectsButton = style({
 export const title = style({
   fontSize: 56,
   fontWeight: 200,
-  margin: 0
+  margin: 0,
 })
 
 export const titleSm = style([

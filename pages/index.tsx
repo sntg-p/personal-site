@@ -7,7 +7,7 @@ import { getProjectPostsWithTag } from '../lib/tags'
 import Layout, { siteTitle } from '../components/layout'
 import ProjectList from '../components/project-list'
 
-import { padding1px, headingLg } from '../styles/utils.css'
+import { padding1px, headingLg, twoColumns } from '../styles/utils.css'
 import { PostDataWithId } from '../lib/common'
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
@@ -43,7 +43,7 @@ const Home: FC<HomeProps> = ({ projects }) => {
 
         <ProjectList
           projects={projects}
-          style={{ gridTemplateColumns: '1fr 1fr' }}
+          className={twoColumns}
         />
       </section>
     </Layout>

@@ -9,9 +9,9 @@ interface ProjectListProps extends React.HTMLProps<HTMLUListElement> {
   projects: PostDataWithId[]
 }
 
-const ProjectList: FC<ProjectListProps> = ({ projects, ...props }) => (
+const ProjectList: FC<ProjectListProps> = ({ projects, className, ...props }) => (
   <ul
-    className={list}
+    className={`${list} ${className}`}
     {...props}
   >
     {projects.map((project) =>

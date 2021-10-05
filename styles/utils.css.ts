@@ -37,3 +37,12 @@ export const thumbnail = style({
 export const fullWidth = style({
   width: '100%'
 })
+
+export const twoColumns = style({
+  gridTemplateColumns: '1fr 1fr',
+  '@media': {
+    'screen and (max-width: 800px)': {
+      gridTemplateColumns: '1fr',
+    }
+  },
+});
