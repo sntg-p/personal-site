@@ -46,7 +46,13 @@ export const headerSm = style({
   fontWeight: 200,
   color: 'hsla(0, 0%, 100%, 0.54)',
   whiteSpace: 'nowrap',
-  alignItems: 'baseline'
+  alignItems: 'baseline',
+  '@media': {
+    'screen and (max-width: 800px)': {
+      flexDirection: 'column',
+      alignItems: 'center'
+    }
+  },
 })
 
 export const backToHome = style({
@@ -102,4 +108,9 @@ export const navMenuLink = style({
       textDecoration: 'none'
     },
   }
+})
+
+export const footer = style({
+  textAlign: 'center',
+  paddingTop: '1rem'
 })

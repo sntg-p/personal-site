@@ -1,9 +1,8 @@
 import { FC } from 'react';
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import { colorInherit, fullWidth } from '../styles/utils.css';
-import { backToHome, container, header, headerLeft, headerRight, headerSm, navMenu, navMenuLink, seeProjectsButton, subtitle, title, titleSm } from './layout.css';
+import { backToHome, container, footer, header, headerLeft, headerRight, headerSm, navMenu, navMenuLink, seeProjectsButton, subtitle, title, titleSm } from './layout.css';
 import ArrowIcon from '../public/icons/arrow_forward_24dp.svg';
 import GitHubIcon from '../public/icons/github_24dp.svg'
 import ContactIcon from '../public/icons/email-outline_24dp.svg'
@@ -185,8 +184,8 @@ export const HeroHeader: FC = () => (
 )
 
 export const Footer: FC = () => (
-  <footer id="footer">
+  <footer className={footer}>
     <hr/>
-    asdf
+    <small>Made with <span role="img" aria-label="heart">❤️</span> using Next.js and TypeScript.</small>
   </footer>
 )
