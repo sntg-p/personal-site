@@ -66,16 +66,21 @@ export const seeProjectsButton = style({
   padding: '0 24px',
   borderRadius: 24,
   border: 'solid currentColor 2px',
-  fontSize: 24,
+  fontSize: '24px',
   lineHeight: '46px',
   fontWeight: 200,
   cursor: 'pointer',
   whiteSpace: 'nowrap',
+  color: 'var(--accent-color-transparent)',
+  ':hover': {
+    color: 'var(--accent-color)',
+  }
 })
 
 export const title = style({
   fontSize: 56,
-  fontWeight: 200,
+  fontWeight: 400,
+  fontFamily: 'Iosevka',
   margin: 0,
 })
 
@@ -88,7 +93,9 @@ export const titleSm = style([
 
 export const subtitle = style({
   fontSize: 24,
-  fontWeight: 100,
+  fontWeight: 200,
+  fontFamily: 'JetBrains Mono',
+  opacity: 0.54,
   margin: 0
 })
 

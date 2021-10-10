@@ -3,7 +3,8 @@ import { style } from '@vanilla-extract/css'
 export const headingXl = style({
   fontSize: '2rem',
   lineHeight: 1.3,
-  fontWeight: 800,
+  fontWeight: 600,
+  fontFamily: 'Iosevka',
   letterSpacing: '-0.05rem',
   margin: '1rem 0',
 })
@@ -11,6 +12,7 @@ export const headingXl = style({
 export const headingLg = style({
   fontSize: '1.5rem',
   lineHeight: 1.4,
+  fontFamily: 'Iosevka',
   margin: '1rem 0',
 })
 
@@ -27,10 +29,9 @@ export const lightText = style({
 })
 
 export const thumbnail = style({
-  display: 'flex',
   overflow: 'auto',
   borderRadius: '.5rem',
-  width: '64px',
+  width: '128px',
   margin: '1rem 0',
 })
 

@@ -15,7 +15,7 @@ import NodeJsIcon from '../public/icons/nodejs_24dp.svg'
 import DotNetIcon from '../public/icons/dotnet_24dp.svg'
 
 const name = 'Santiago Podestá'
-const description = 'Full-stack Dev · Tinkerer · Learner'
+const description = 'Full-stack developer'
 export const siteTitle = 'Santiago Podestá'
 
 const Icons = [
@@ -164,7 +164,7 @@ export const HeroHeader: FC = () => (
         <SeeProjectsButton/>
 
         <div className={navMenu} style={{
-          fontSize: '1.2rem',
+          fontSize: '24px',
           display: 'flex',
           justifyContent: 'center',
           gap: '.25rem',

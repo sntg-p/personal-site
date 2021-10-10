@@ -7,3 +7,12 @@ export const listItem = style({
   cursor: 'pointer',
   borderRadius: '.5rem',
 })
+
+export const listItem2 = style({
+  position: 'relative',
+  margin: 0,
+  background: 'hsla(0, 0%, 100%, 0.04)',
+  cursor: 'pointer',
+  borderRadius: '.5rem',
+  overflow: 'hidden',
+})
