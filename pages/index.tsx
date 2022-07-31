@@ -29,6 +29,7 @@ const Home: FC<HomeProps> = ({ projects }) => {
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
+        <meta name="google-site-verification" content="hlSvkDyo8fUw3HFcs3tRTyQVZFn3LKxNS8vj4BzSEJg" />
       </Head>
 
       <section
