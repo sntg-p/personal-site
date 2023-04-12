@@ -12,7 +12,7 @@ const Project: FC<{ project: PostDataWithId }> = ({ project }) => {
   const [image] = images || []
 
   return (
-    <Link href={`/projects/${id}`}>
+    <Link href={`/projects/${id}`} legacyBehavior>
       <li className={listItem2}>
         {image && (
           <>
@@ -62,7 +62,7 @@ const Project: FC<{ project: PostDataWithId }> = ({ project }) => {
         </div>
       </li>
     </Link>
-  )
+  );
 }
 
 const ProjectTitle: FC<{ title: string, date: string | Date }> = props => {
@@ -80,7 +80,7 @@ const Project2: FC<{ project: PostDataWithId }> = ({ project }) => {
   const [image] = images || []
 
   return (
-    <Link href={`/projects/${id}`}>
+    <Link href={`/projects/${id}`} legacyBehavior>
       <li className={listItem}>
         <a>
           <h4>{title}</h4>
@@ -122,7 +122,7 @@ const Project2: FC<{ project: PostDataWithId }> = ({ project }) => {
         </div>
       </li>
     </Link>
-  )
+  );
 }
 
 export default Project

@@ -102,14 +102,14 @@ const Layout: FC<{ home?: boolean }> = ({ children, home }) => {
       {!home && (
         <div className={backToHome}>
           <Link href="/">
-            <a>← Back to home</a>
+            ← Back to home
           </Link>
         </div>
       )}
 
       <Footer/>
     </div>
-  )
+  );
 }
 
 export default Layout
@@ -125,16 +125,15 @@ export const NavMenu: FC<React.HTMLProps<HTMLDivElement>> = ({ className, style,
     style={style}
     className={`${navMenu} ${className}`}
   >
-    <Link href="/"><a className={navMenuLink}><Icon icon={AboutIcon} /> About</a></Link> · <Link href="/projects"><a className={navMenuLink}><Icon icon={ProjectsIcon} /> Projects</a></Link> · <Link href="mailto:santiagolp98@gmail.com"><a className={navMenuLink}><Icon icon={ContactIcon} /> Contact</a></Link> · <Link href="https://github.com/sntg-p"><a className={navMenuLink}>
-        <Icon icon={GitHubIcon} /> GitHub
-      </a></Link>
+    <Link href="/" className={navMenuLink}><Icon icon={AboutIcon} />About</Link> · <Link href="/projects" className={navMenuLink}><Icon icon={ProjectsIcon} />Projects</Link> · <Link href="mailto:santiagolp98@gmail.com" className={navMenuLink}><Icon icon={ContactIcon} />Contact</Link> · <Link href="https://github.com/sntg-p" className={navMenuLink}>
+    <Icon icon={GitHubIcon} />GitHub</Link>
   </div>
 )
 
 export const SmallHeader: FC = () => (
   <header className={headerSm}>
-    <Link href="/">
-      <a className={`${colorInherit} ${titleSm}`}>{name}</a>
+    <Link href="/" className={`${colorInherit} ${titleSm}`}>
+      {name}
     </Link>
 
     <div className={fullWidth}/>
@@ -171,11 +170,15 @@ export const HeroHeader: FC = () => (
           marginTop: '.5rem',
         }}>
           {Icons.map(({ name, icon, tag }) => (
-            <Link href={`/projects/tags/${tag}`} key={tag}>
-              <a className={navMenuLink} title={name}>
-                <Icon icon={icon} />
-              </a>
-            </Link>
+            (<Link
+              href={`/projects/tags/${tag}`}
+              key={tag}
+              className={navMenuLink}
+              title={name}>
+
+              <Icon icon={icon} />
+
+            </Link>)
           ))}
         </div>
       </aside>

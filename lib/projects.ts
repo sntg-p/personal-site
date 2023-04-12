@@ -84,7 +84,7 @@ export function getAllProjectIds() {
     params: {
       id: fileName.replace(/\.md$/, '')
     }
-  }))
+  }));
 }
 
 export async function getProjectData(id: string): Promise<PostDataWithId> {

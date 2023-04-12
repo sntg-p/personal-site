@@ -10,7 +10,7 @@ interface TagListProps {
 const TagList: FC<TagListProps> = ({ tags }) => (
   <>
     {tags?.map(tag => (
-      <Link href={`/projects/tags/${tag}`} key={tag}>
+      <Link href={`/projects/tags/${tag}`} key={tag} legacyBehavior>
         <span> <a className={`${listItem2} ${lightText}`}>{tag}</a></span>
       </Link>
     ))}
