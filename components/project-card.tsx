@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 import { PostDataWithId } from '../lib/common'
 import TagList from '../components/tag-list'
