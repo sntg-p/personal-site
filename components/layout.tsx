@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Head from 'next/head'
 import Link from 'next/link'
 import { colorInherit, fullWidth } from '../styles/utils.css';
-import { backToHome, container, footer, header, headerLeft, headerRight, headerSm, navMenu, navMenuLink, seeProjectsButton, subtitle, title, titleSm } from './layout.css';
+import { backToHome, container, footer, header, headerLeft, headerRight, headerSm, navItem, navMenu, navMenuLink, seeProjectsButton, subtitle, title, titleSm } from './layout.css';
 import ArrowIcon from '../public/icons/arrow_forward_24dp.svg';
 import GitHubIcon from '../public/icons/github_24dp.svg'
 import ContactIcon from '../public/icons/email-outline_24dp.svg'
@@ -53,17 +53,14 @@ const scrollToProjects = () => {
 }
 
 export const Icon: FC<{ icon: any }> = ({ icon: Icon }) => (
-  <div style={{
-    display: 'inline-flex',
-    alignSelf: 'center'
-  }}>
+  <span>
     <Icon style={{
       height: '1em',
       width: '1em',
       top: '.125em',
       position: 'relative',
     }} />
-  </div>
+  </span>
 )
 
 const SeeProjectsButton = () => (
@@ -120,14 +117,42 @@ const scrollToFooter = () => {
     ?.scrollIntoView({ behavior: 'smooth' })
 }
 
-export const NavMenu: FC<React.HTMLProps<HTMLDivElement>> = ({ className, style, ...props }) => (
-  <div {...props}
+export const NavMenu: FC<React.HTMLProps<HTMLUListElement>> = ({ className, style, ...props }) => (
+  <ul {...props}
     style={style}
     className={`${navMenu} ${className}`}
   >
-    <Link href="/" className={navMenuLink}><Icon icon={AboutIcon} />About</Link> · <Link href="/projects" className={navMenuLink}><Icon icon={ProjectsIcon} />Projects</Link> · <Link href="mailto:santiagolp98@gmail.com" className={navMenuLink}><Icon icon={ContactIcon} />Contact</Link> · <Link href="https://github.com/sntg-p" className={navMenuLink}>
-    <Icon icon={GitHubIcon} />GitHub</Link>
-  </div>
+    <li className={navItem}>
+      <Link href="/" className={navMenuLink}>
+        <Icon icon={AboutIcon}/>{' '}
+        About
+      </Link>
+    </li>
+    {' · '}
+
+    <li className={navItem}>
+      <Link href="/projects" className={navMenuLink}>
+        <Icon icon={ProjectsIcon} />{' '}
+        Projects
+      </Link>
+    </li>
+    {' · '}
+
+    <li className={navItem}>
+      <Link href="mailto:santiagolp98@gmail.com" className={navMenuLink}>
+        <Icon icon={ContactIcon} />{' '}
+        Contact
+      </Link>
+    </li>
+    {' · '}
+
+    <li className={navItem}>
+      <Link href="https://github.com/sntg-p" className={navMenuLink}>
+        <Icon icon={GitHubIcon} />{' '}
+        GitHub
+      </Link>
+    </li>
+  </ul>
 )
 
 export const SmallHeader: FC = () => (
@@ -136,8 +161,6 @@ export const SmallHeader: FC = () => (
       {name}
     </Link>
 
-    <div className={fullWidth}/>
-
     <NavMenu/>
   </header>
 )
@@ -145,6 +168,7 @@ export const SmallHeader: FC = () => (
 export const HeroHeader: FC = () => (
   <>
     <NavMenu style={{
+      justifyContent: 'end',
       position: 'relative',
       top: '2.15rem',
       textAlign: 'end'
@@ -170,15 +194,16 @@ export const HeroHeader: FC = () => (
           marginTop: '.5rem',
         }}>
           {Icons.map(({ name, icon, tag }) => (
-            (<Link
+            <Link
               href={`/projects/tags/${tag}`}
               key={tag}
               className={navMenuLink}
-              title={name}>
+              title={name}
+            >
 
               <Icon icon={icon} />
 
-            </Link>)
+            </Link>
           ))}
         </div>
       </aside>

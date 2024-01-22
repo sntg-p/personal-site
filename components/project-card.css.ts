@@ -15,4 +15,9 @@ export const listItem2 = style({
   cursor: 'pointer',
   borderRadius: '.5rem',
   overflow: 'hidden',
+  transition: 'transform .2s ease-out, background .15s ease-out',
+  ':hover': {
+    background: 'hsla(0, 0%, 100%, 0.08)',
+    transform: 'scale(1.025)',
+  },
 })

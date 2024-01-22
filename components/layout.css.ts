@@ -47,6 +47,7 @@ export const headerSm = style({
   color: 'hsla(0, 0%, 100%, 0.54)',
   whiteSpace: 'nowrap',
   alignItems: 'baseline',
+  justifyContent: 'space-between',
   '@media': {
     'screen and (max-width: 800px)': {
       flexDirection: 'column',
@@ -66,9 +67,9 @@ export const seeProjectsButton = style({
   padding: '0 24px',
   borderRadius: 24,
   border: 'solid currentColor 2px',
+  fontFamily: 'JetBrains Mono',
   fontSize: '24px',
   lineHeight: '46px',
-  fontWeight: 200,
   cursor: 'pointer',
   whiteSpace: 'nowrap',
   color: 'var(--accent-color-transparent)',
@@ -100,9 +101,22 @@ export const subtitle = style({
 })
 
 export const navMenu = style({
+  display: 'flex',
+  gap: '.25rem',
+  margin: 0,
+  padding: 0,
   fontSize: '.8rem',
-  fontWeight: 200,
+  fontFamily: 'JetBrains Mono',
+  flexWrap: 'wrap',
   color: 'hsla(0, 0%, 100%, 0.54)',
+})
+
+export const navItem = style({
+  selectors: {
+    [`${navMenu} &`]: {
+      display: 'inline',
+    },
+  }
 })
 
 export const navMenuLink = style({
