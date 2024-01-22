@@ -73,6 +73,7 @@ export const seeProjectsButton = style({
   cursor: 'pointer',
   whiteSpace: 'nowrap',
   color: 'var(--accent-color-transparent)',
+  transition: 'color .15s ease-out',
   ':hover': {
     color: 'var(--accent-color)',
   }

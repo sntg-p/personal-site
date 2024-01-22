@@ -7,6 +7,7 @@ export const tagItem = style({
   padding: '0.5ch',
   margin: '0',
   cursor: 'pointer',
+  transition: 'background .15s ease-in-out, color .15s ease-in-out',
   ':hover': {
     background: 'hsl(var(--accent-color-value), .12)',
   }

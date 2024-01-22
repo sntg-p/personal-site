@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import Head from 'next/head'
 import Link from 'next/link'
-import { colorInherit, fullWidth } from '../styles/utils.css';
+import { colorInherit } from '../styles/utils.css';
 import { backToHome, container, footer, header, headerLeft, headerRight, headerSm, navItem, navMenu, navMenuLink, seeProjectsButton, subtitle, title, titleSm } from './layout.css';
 import ArrowIcon from '../public/icons/arrow_forward_24dp.svg';
 import GitHubIcon from '../public/icons/github_24dp.svg'
@@ -73,7 +73,7 @@ const SeeProjectsButton = () => (
   // </Link>
 )
 
-const Layout: FC<{ home?: boolean }> = ({ children, home }) => {
+const Layout: FC<{ home?: boolean, children?: ReactNode }> = ({ children, home }) => {
   return (
     <div className={container}>
       <Head>
