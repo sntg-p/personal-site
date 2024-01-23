@@ -4,8 +4,8 @@ import Image from "next/legacy/image"
 
 import { PostDataWithId } from '../lib/common'
 import TagList from '../components/tag-list'
-import { listItem, listItem2 } from './project-card.css'
-import { thumbnail, lightText } from '../styles/utils.css'
+import { cardBody, cardItem, cardTitle } from './project-card.css'
+import { lightText } from '../styles/utils.css'
 
 const Project: FC<{ project: PostDataWithId }> = ({ project }) => {
   const { id, title, date, tags, excerpt, images } = project
@@ -13,7 +13,7 @@ const Project: FC<{ project: PostDataWithId }> = ({ project }) => {
 
   return (
     <Link href={`/projects/${id}`} legacyBehavior>
-      <li className={listItem2}>
+      <li className={cardItem}>
         {image && (
           <>
             <Image
@@ -58,7 +58,7 @@ const Project: FC<{ project: PostDataWithId }> = ({ project }) => {
             <TagList tags={tags} />
           </small>}
 
-          {excerpt && <p><small>{excerpt}</small></p>}
+          {excerpt && <p className={cardBody}>{excerpt}</p>}
         </div>
       </li>
     </Link>
@@ -69,60 +69,10 @@ const ProjectTitle: FC<{ title: string, date: string | Date }> = props => {
   const { title, date } = props
 
   return (
-    <a>
+    <a className={cardTitle}>
       <h4>{title} · {new Date(date).getUTCFullYear()}</h4>
     </a>
   )
-}
-
-const Project2: FC<{ project: PostDataWithId }> = ({ project }) => {
-  const { id, title, date, tags, excerpt, images } = project
-  const [image] = images || []
-
-  return (
-    <Link href={`/projects/${id}`} legacyBehavior>
-      <li className={listItem}>
-        <a>
-          <h4>{title}</h4>
-        </a>
-
-        <small className={lightText}>
-          {new Date(date).getUTCFullYear()} ·
-        </small>
-
-        {tags && <small className={lightText}>
-          <TagList tags={tags} />
-        </small>}
-
-        <br/>
-
-        <div
-          style={{
-            display: 'grid',
-            width: '100%',
-            gridTemplateColumns: '1fr auto',
-            alignItems: 'flex-start',
-            gap: '.5rem',
-          }}
-        >
-          <div style={{ width: '100%' }}>
-            {excerpt && <p><small>{excerpt}</small></p>}
-          </div>
-
-          {image &&
-            <div className={thumbnail}>
-              <Image
-                {...image}
-                width={64} height={64}
-                objectFit="cover"
-                objectPosition="center top"
-              />
-            </div>
-          }
-        </div>
-      </li>
-    </Link>
-  );
 }
 
 export default Project

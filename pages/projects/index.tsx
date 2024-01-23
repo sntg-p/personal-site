@@ -6,7 +6,7 @@ import { PostDataWithId } from '../../lib/common'
 import { getSortedProjectsData } from '../../lib/projects'
 import Layout, { siteTitle } from '../../components/layout'
 import ProjectList from '../../components/project-list'
-import { headingLg, padding1px } from '../../styles/utils.css'
+import { headingLg, padding1px, twoColumns } from '../../styles/utils.css'
 
 export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
   const projects = getSortedProjectsData()
@@ -37,6 +37,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
 
         <ProjectList
           projects={projects}
+          className={twoColumns}
         />
       </section>
     </Layout>

@@ -1,14 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-export const listItem = style({
-  margin: 0,
-  padding: '0 1rem',
-  background: 'hsla(0, 0%, 100%, 0.04)',
-  cursor: 'pointer',
-  borderRadius: '.5rem',
-})
-
-export const listItem2 = style({
+export const cardItem = style({
   position: 'relative',
   margin: 0,
   background: 'hsla(0, 0%, 100%, 0.04)',
@@ -20,4 +12,18 @@ export const listItem2 = style({
     background: 'hsla(0, 0%, 100%, 0.08)',
     transform: 'scale(1.025)',
   },
+})
+
+export const cardTitle = style({
+  transition: 'color .2s ease-out',
+  selectors: {
+    [`${cardItem}:hover &`]: {
+      color: 'var(--accent-color)',
+    }
+  }
+})
+
+export const cardBody = style({
+  fontFamily: 'JetBrains Mono',
+  fontSize: '0.75rem',
 })
